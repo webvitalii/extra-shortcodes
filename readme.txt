@@ -4,7 +4,7 @@ Donate link: http://web-profile.com.ua/donate/
 Tags: shortcode, shortcodes, bloginfo, name, date, date_i18n, time, year, month, week, day
 Requires at least: 3.0
 Tested up to: 4.7
-Stable tag: 1.7
+Stable tag: 2.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 

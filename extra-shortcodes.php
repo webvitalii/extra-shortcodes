@@ -3,7 +3,7 @@
 Plugin Name: Extra Shortcodes
 Plugin URI: http://wordpress.org/plugins/extra-shortcodes/
 Description: [bloginfo show="name"], [date format="l jS \\of F Y h:i:s A" timestamp="+2 years +3 months -20 days -10 hours +30 minutes"], [date_i18n], [time], [year plus="2"], [month minus="3"], [month_name], [day], [weekday]
-Version: 1.7
+Version: 2.0
 Author: webvitaly
 Text Domain: extra-shortcodes
 Author URI: http://web-profile.com.ua/wordpress/plugins/
@@ -11,51 +11,66 @@ License: GPLv3
 */
 
 
-if ( !function_exists('bloginfo_shortcode') ) {
-	function bloginfo_shortcode( $atts ) {
+class Extra_Shortcodes {
+
+	public static function init() {
+
+		// Note: shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
+
+		add_shortcode('bloginfo', array( __CLASS__, 'bloginfo_shortcode' ) );
+
+		add_shortcode( 'site_name', array( __CLASS__, 'site_name_shortcode' ) );
+		add_shortcode( 'site_desc', array( __CLASS__, 'site_desc_shortcode' ) );
+		add_shortcode( 'site_url', array( __CLASS__, 'site_url_shortcode' ) );
+		add_shortcode( 'wp_version', array( __CLASS__, 'wp_version_shortcode' ) );
+
+		add_shortcode( 'date', array( __CLASS__, 'date_shortcode' ) );
+		add_shortcode( 'date_i18n', array( __CLASS__, 'date_i18n_shortcode' ) );
+
+		add_shortcode( 'time', array( __CLASS__, 'time_shortcode' ) );
+		add_shortcode( 'year', array( __CLASS__, 'year_shortcode' ) );
+		add_shortcode( 'month', array( __CLASS__, 'month_shortcode' ) );
+		add_shortcode( 'month_name', array( __CLASS__, 'month_name_shortcode' ) );
+		add_shortcode( 'day', array( __CLASS__, 'day_shortcode' ) );
+		add_shortcode( 'weekday', array( __CLASS__, 'weekday_shortcode' ) );
+		add_shortcode( 'hours', array( __CLASS__, 'hours_shortcode' ) );
+		add_shortcode( 'minutes', array( __CLASS__, 'minutes_shortcode' ) );
+		add_shortcode( 'seconds', array( __CLASS__, 'seconds_shortcode' ) );
+
+		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
+
+	}
+
+
+	public static function bloginfo_shortcode( $atts ) {
 		extract(shortcode_atts(array(
 			'show' => 'name'
 		), $atts));
 		return get_bloginfo($show);
 	}
-	add_shortcode('bloginfo', 'bloginfo_shortcode');
-}
 
 
-if ( !function_exists('site_name_shortcode') ) {
-	function site_name_shortcode() {
+	public static function site_name_shortcode() {
 		return get_bloginfo('name');
 	}
-	add_shortcode( 'site_name', 'site_name_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-}
 
 
-if ( !function_exists('site_desc_shortcode') ) {
-	function site_desc_shortcode() {
+	public static function site_desc_shortcode() {
 		return get_bloginfo('description');
 	}
-	add_shortcode( 'site_desc', 'site_desc_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-}
 
 
-if ( !function_exists('site_url_shortcode') ) {
-	function site_url_shortcode() {
+	public static function site_url_shortcode() {
 		return get_bloginfo('url');
 	}
-	add_shortcode( 'site_url', 'site_url_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-}
 
 
-if ( !function_exists('wp_version_shortcode') ) {
-	function wp_version_shortcode() {
+	public static function wp_version_shortcode() {
 		return get_bloginfo('version');
 	}
-	add_shortcode( 'wp_version', 'wp_version_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-}
 
 
-if ( !function_exists('date_shortcode') ) {
-	function date_shortcode( $atts ) {
+	public static function date_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'format' => 'l jS \of F Y',
 			'timestamp' => 'now',
@@ -78,201 +93,176 @@ if ( !function_exists('date_shortcode') ) {
 
 		return $date;
 	}
-	add_shortcode( 'date', 'date_shortcode' );
-}
 
 
-if ( !function_exists('date_i18n_shortcode') ) {
-	function date_i18n_shortcode( $atts ) {
+	public static function date_i18n_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'format' => 'l jS \of F Y',
 			'timestamp' => 'now'
 		), $atts ) );
 		return date_i18n( $format, strtotime( $timestamp ) );
 	}
-	add_shortcode( 'date_i18n', 'date_i18n_shortcode' );
-}
 
 
-if ( !function_exists('time_shortcode') ) {
-	function time_shortcode( $atts ) {
+	public static function time_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'format' => 'h:i:s A',
 			'timestamp' => 'now'
 		), $atts ) );
 		return date( $format, strtotime( $timestamp ) );
 	}
-	add_shortcode( 'time', 'time_shortcode' );
-}
 
 
-if ( !function_exists('year_shortcode') ) {
-	function year_shortcode( $atts ) {
+	public static function year_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'plus' => 0,
 			'minus' => 0,
 			'timestamp' => 'now'
 		), $atts ) );
-		if( !empty( $plus ) ){
+		if ( !empty( $plus ) ) {
 			$year = date( 'Y', strtotime( '+'.intval($plus).' years' ) );
-		}elseif( !empty( $minus ) ){
+		} elseif ( !empty( $minus ) ) {
 			$year = date( 'Y', strtotime( '-'.intval($minus).' years' ) );
-		}else{
+		} else {
 			$year = date( 'Y', strtotime( $timestamp ) );
 		}
 		return $year;
 	}
-	add_shortcode( 'year', 'year_shortcode' );
-}
 
 
-if ( !function_exists('month_shortcode') ) {
-	function month_shortcode( $atts ) {
+	public static function month_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'plus' => 0,
 			'minus' => 0,
 			'timestamp' => 'now'
 		), $atts ) );
-		if( !empty( $plus ) ){
+		if ( !empty( $plus ) ) {
 			$month = date( 'm', strtotime( '+'.intval($plus).' months' ) );
-		}elseif( !empty( $minus ) ){
+		} elseif ( !empty( $minus ) ) {
 			$month = date( 'm', strtotime( '-'.intval($minus).' months' ) );
-		}else{
+		} else {
 			$month = date( 'm', strtotime( $timestamp ) );
 		}
 		return $month;
 	}
-	add_shortcode( 'month', 'month_shortcode' );
-}
 
 
-if ( !function_exists('month_name_shortcode') ) {
-	function month_name_shortcode( $atts ) {
+	public static function month_name_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'plus' => 0,
 			'minus' => 0,
 			'timestamp' => 'now'
 		), $atts ) );
-		if( !empty( $plus ) ){
+		if ( !empty( $plus ) ) {
 			$month_name = date( 'F', strtotime( '+'.intval($plus).' months' ) );
-		}elseif( !empty( $minus ) ){
+		} elseif ( !empty( $minus ) ) {
 			$month_name = date( 'F', strtotime( '-'.intval($minus).' months' ) );
-		}else{
+		} else {
 			$month_name = date( 'F', strtotime( $timestamp ) );
 		}
 		return $month_name;
 	}
-	add_shortcode( 'month_name', 'month_name_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-}
 
 
-if ( !function_exists('day_shortcode') ) {
-	function day_shortcode( $atts ) {
+	public static function day_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'plus' => 0,
 			'minus' => 0,
 			'timestamp' => 'now'
 		), $atts ) );
-		if( !empty( $plus ) ){
+		if ( !empty( $plus ) ) {
 			$day = date( 'd', strtotime( '+'.intval($plus).' days' ) );
-		}elseif( !empty( $minus ) ){
+		} elseif ( !empty( $minus ) ) {
 			$day = date( 'd', strtotime( '-'.intval($minus).' days' ) );
-		}else{
+		} else {
 			$day = date( 'd', strtotime( $timestamp ) );
 		}
 		return $day;
 	}
-	add_shortcode( 'day', 'day_shortcode' );
-}
 
 
-if ( !function_exists('weekday_shortcode') ) {
-	function weekday_shortcode( $atts ) {
+	public static function weekday_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'plus' => 0,
 			'minus' => 0,
 			'timestamp' => 'now'
 		), $atts ) );
-		if( !empty( $plus ) ){
+		if ( !empty( $plus ) ) {
 			$weekday = date( 'l', strtotime( '+'.intval($plus).' days' ) );
-		}elseif( !empty( $minus ) ){
+		} elseif ( !empty( $minus ) ) {
 			$weekday = date( 'l', strtotime( '-'.intval($minus).' days' ) );
-		}else{
+		} else {
 			$weekday = date( 'l', strtotime( $timestamp ) );
 		}
 		return $weekday;
 	}
-	add_shortcode( 'weekday', 'weekday_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-}
 
 
-if ( !function_exists('hours_shortcode') ) {
-	function hours_shortcode( $atts ) {
+	public static function hours_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'plus' => 0,
 			'minus' => 0,
 			'timestamp' => 'now'
 		), $atts ) );
-		if( !empty( $plus ) ){
+		if ( !empty( $plus ) ) {
 			$hours = date( 'H', strtotime( '+'.intval($plus).' hours' ) );
-		}elseif( !empty( $minus ) ){
+		} elseif ( !empty( $minus ) ) {
 			$hours = date( 'H', strtotime( '-'.intval($minus).' hours' ) );
-		}else{
+		} else {
 			$hours = date( 'H', strtotime( $timestamp ) );
 		}
 		return $hours;
 	}
-	add_shortcode( 'hours', 'hours_shortcode' );
-}
 
 
-if ( !function_exists('minutes_shortcode') ) {
-	function minutes_shortcode( $atts ) {
+	public static function minutes_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'plus' => 0,
 			'minus' => 0,
 			'timestamp' => 'now'
 		), $atts ) );
-		if( !empty( $plus ) ){
+		if ( !empty( $plus ) ) {
 			$minutes = date( 'i', strtotime( '+'.intval($plus).' minutes' ) );
-		}elseif( !empty( $minus ) ){
+		} elseif ( !empty( $minus ) ) {
 			$minutes = date( 'i', strtotime( '-'.intval($minus).' minutes' ) );
-		}else{
+		} else {
 			$minutes = date( 'i', strtotime( $timestamp ) );
 		}
 		return $minutes;
 	}
-	add_shortcode( 'minutes', 'minutes_shortcode' );
-}
 
 
-if ( !function_exists('seconds_shortcode') ) {
-	function seconds_shortcode( $atts ) {
+	public static function seconds_shortcode( $atts ) {
 		extract( shortcode_atts( array(
 			'plus' => 0,
 			'minus' => 0,
 			'timestamp' => 'now'
 		), $atts ) );
-		if( !empty( $plus ) ){
+		if ( !empty( $plus ) ) {
 			$seconds = date( 's', strtotime( '+'.intval($plus).' seconds' ) );
-		}elseif( !empty( $minus ) ){
+		} elseif ( !empty( $minus ) ) {
 			$seconds = date( 's', strtotime( '-'.intval($minus).' seconds' ) );
-		}else{
+		} else {
 			$seconds = date( 's', strtotime( $timestamp ) );
 		}
 		return $seconds;
 	}
-	add_shortcode( 'seconds', 'seconds_shortcode' );
-}
 
 
-if( ! function_exists( 'extra_shortcodes_unqprfx_plugin_meta' ) ) {
-	function extra_shortcodes_unqprfx_plugin_meta( $links, $file ) { // add 'Support' and 'Donate' links to plugin meta row
-		if ( strpos( $file, 'extra-shortcodes.php' ) !== false ) {
-			$links = array_merge( $links, array( '<a href="http://web-profile.com.ua/wordpress/plugins/extra-shortcodes/" title="Plugin page">Extra Shortcodes</a>' ) );
-			$links = array_merge( $links, array( '<a href="http://web-profile.com.ua/donate/" title="Support the development">Donate</a>' ) );
+	public static function plugin_row_meta( $links, $file ) {
+		if ( $file == plugin_basename( __FILE__ ) ) {
+			$row_meta = array(
+				'support' => '<a href="http://web-profile.com.ua/wordpress/plugins/extra-shortcodes/" target="_blank"><span class="dashicons dashicons-editor-help"></span> ' . __( 'Extra Shortcodes', 'extra-shortcodes' ) . '</a>',
+				'donate' => '<a href="http://web-profile.com.ua/donate/" target="_blank"><span class="dashicons dashicons-heart"></span> ' . __( 'Donate', 'extra-shortcodes' ) . '</a>'
+			);
+			$links = array_merge( $links, $row_meta );
 		}
-		return $links;
+		return (array) $links;
 	}
-	add_filter( 'plugin_row_meta', 'extra_shortcodes_unqprfx_plugin_meta', 10, 2 );
+
 }
+
+
+Extra_Shortcodes::init();
+
+
