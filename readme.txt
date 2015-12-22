@@ -11,9 +11,10 @@ License URI: http://www.gnu.org/licenses/gpl.html
 [bloginfo show="name"], [date format="l jS \\of F Y"], [date_i18n], [time], [year], [month_name], [day]
 
 == Description ==
-> [WordPress Pro plugins](http://codecanyon.net/popular_item/by_category?category=wordpress&ref=webvitaly) |
-> [Extra Shortcodes](http://web-profile.com.ua/wordpress/plugins/extra-shortcodes/ "Plugin page") |
-> [Donate](http://web-profile.com.ua/donate/ "Support the development")
+> **[WordPress Pro plugins](http://codecanyon.net/popular_item/by_category?category=wordpress&ref=webvitaly "WordPress Pro plugins")** |
+> **[Extra Shortcodes](http://web-profile.com.ua/wordpress/plugins/extra-shortcodes/ "Extra Shortcodes")** |
+> **[Donate](http://web-profile.com.ua/donate/ "Donate")** |
+> **[GitHub](https://github.com/webvitaly/extra-shortcodes "Fork")**
 
 
 = Shortcodes: =
