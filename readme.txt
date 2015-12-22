@@ -1,18 +1,18 @@
-=== Extra-shortcodes ===
+=== Extra Shortcodes ===
 Contributors: webvitaly
 Donate link: http://web-profile.com.ua/donate/
 Tags: shortcode, shortcodes, bloginfo, name, date, date_i18n, time, year, month, week, day
 Requires at least: 3.0
-Tested up to: 4.1
-Stable tag: 1.6
+Tested up to: 4.7
+Stable tag: 1.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
-[bloginfo show="name"], [site_name], [site_desc], [date format="l jS \\of F Y"], [date_i18n], [time], [year], [month_name], [day]
+[bloginfo show="name"], [date format="l jS \\of F Y"], [date_i18n], [time], [year], [month_name], [day]
 
 == Description ==
 > [WordPress Pro plugins](http://codecanyon.net/popular_item/by_category?category=wordpress&ref=webvitaly) |
-> [Extra-shortcodes](http://web-profile.com.ua/wordpress/plugins/extra-shortcodes/ "Plugin page") |
+> [Extra Shortcodes](http://web-profile.com.ua/wordpress/plugins/extra-shortcodes/ "Plugin page") |
 > [Donate](http://web-profile.com.ua/donate/ "Support the development")
 
 
