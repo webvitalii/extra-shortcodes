@@ -39,10 +39,14 @@ License URI: http://www.gnu.org/licenses/gpl.html
 = Useful: =
 * ["Anti-spam" - block spam in comments](http://wordpress.org/plugins/anti-spam/ "no spam, no captcha")
 * ["Page-list" - show list of pages with shortcodes](http://wordpress.org/plugins/page-list/ "list of pages with shortcodes")
-* [WordPress Pro plugins](http://codecanyon.net/popular_item/by_category?category=wordpress&ref=webvitaly)
+* [WordPress Pro plugins](http://codecanyon.net/popular_item/by_category?category=wordpress&ref=webvitaly "WordPress Pro plugins")
 
 
 == Changelog ==
+
+= 2.0 - 2015-12-21 =
+* code refactoring
+* shortcodes cleanup
 
 = 1.6 - 2014-02-14 =
 * added 'use_wordpress_timezone' param to [date] shortcode;
