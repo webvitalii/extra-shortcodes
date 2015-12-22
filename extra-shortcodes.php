@@ -27,9 +27,6 @@ if ( !function_exists('site_name_shortcode') ) {
 		return get_bloginfo('name');
 	}
 	add_shortcode( 'site_name', 'site_name_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-	add_shortcode( 'sitename', 'site_name_shortcode' ); // just in case
-	add_shortcode( 'site_title', 'site_name_shortcode' ); // just in case
-	add_shortcode( 'sitetitle', 'site_name_shortcode' ); // just in case
 }
 
 
@@ -38,9 +35,6 @@ if ( !function_exists('site_desc_shortcode') ) {
 		return get_bloginfo('description');
 	}
 	add_shortcode( 'site_desc', 'site_desc_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-	add_shortcode( 'sitedesc', 'site_desc_shortcode' ); // just in case
-	add_shortcode( 'site_description', 'site_desc_shortcode' ); // just in case
-	add_shortcode( 'sitedescription', 'site_desc_shortcode' ); // just in case
 }
 
 
@@ -49,7 +43,6 @@ if ( !function_exists('site_url_shortcode') ) {
 		return get_bloginfo('url');
 	}
 	add_shortcode( 'site_url', 'site_url_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-	add_shortcode( 'siteurl', 'site_url_shortcode' ); // just in case
 }
 
 
@@ -58,7 +51,6 @@ if ( !function_exists('wp_version_shortcode') ) {
 		return get_bloginfo('version');
 	}
 	add_shortcode( 'wp_version', 'wp_version_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-	add_shortcode( 'wpversion', 'wp_version_shortcode' ); // just in case
 }
 
 
@@ -171,7 +163,6 @@ if ( !function_exists('month_name_shortcode') ) {
 		return $month_name;
 	}
 	add_shortcode( 'month_name', 'month_name_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-	add_shortcode( 'monthname', 'month_name_shortcode' ); // just in case
 }
 
 
@@ -212,7 +203,6 @@ if ( !function_exists('weekday_shortcode') ) {
 		return $weekday;
 	}
 	add_shortcode( 'weekday', 'weekday_shortcode' ); // shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
-	add_shortcode( 'week_day', 'weekday_shortcode' ); // just in case
 }
 
 
@@ -233,7 +223,6 @@ if ( !function_exists('hours_shortcode') ) {
 		return $hours;
 	}
 	add_shortcode( 'hours', 'hours_shortcode' );
-	add_shortcode( 'hour', 'hours_shortcode' ); // just in case
 }
 
 
@@ -254,7 +243,6 @@ if ( !function_exists('minutes_shortcode') ) {
 		return $minutes;
 	}
 	add_shortcode( 'minutes', 'minutes_shortcode' );
-	add_shortcode( 'minute', 'minutes_shortcode' ); // just in case
 }
 
 
@@ -275,7 +263,6 @@ if ( !function_exists('seconds_shortcode') ) {
 		return $seconds;
 	}
 	add_shortcode( 'seconds', 'seconds_shortcode' );
-	add_shortcode( 'second', 'seconds_shortcode' ); // just in case
 }
 
 
