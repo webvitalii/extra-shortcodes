@@ -17,7 +17,9 @@ class Extra_Shortcodes {
 
 		// Note: shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
 
-		add_shortcode('bloginfo', array( __CLASS__, 'bloginfo_shortcode' ) );
+		add_shortcode( 'extra_archives', array( __CLASS__, 'archives_shortcode' ) );
+
+		add_shortcode( 'bloginfo', array( __CLASS__, 'bloginfo_shortcode' ) );
 
 		add_shortcode( 'site_name', array( __CLASS__, 'site_name_shortcode' ) );
 		add_shortcode( 'site_desc', array( __CLASS__, 'site_desc_shortcode' ) );
@@ -39,6 +41,30 @@ class Extra_Shortcodes {
 
 		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 
+	}
+
+
+	public static function archives_shortcode( $atts ) {
+		$defaults = array(
+			'type' => 'monthly',
+			'limit' => '',
+			'format' => 'html',
+			'before' => '',
+			'after' => '',
+			'show_post_count' => 0,
+			'echo' => 0,
+			'order' => 'DESC'
+		);
+		extract( shortcode_atts( $defaults, $atts ) );
+		$archives_args = array(
+			'type' => $type,
+			'limit' => $limit,
+			'show_post_count' => $show_post_count,
+			'echo' => 0,
+			'order' => $order
+		);
+
+		return '<ul>'."\n".wp_get_archives( $archives_args ).'</ul>'."\n".'<!-- Powered by Extra Shortcodes wordpress.org/plugins/extra-shortcodes/ -->';
 	}
 
 
