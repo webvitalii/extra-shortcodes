@@ -3,7 +3,7 @@
 Plugin Name: Extra Shortcodes
 Plugin URI: http://wordpress.org/plugins/extra-shortcodes/
 Description: [bloginfo show="name"], [date format="l jS \\of F Y h:i:s A" timestamp="+2 years +3 months -20 days -10 hours +30 minutes"], [date_i18n], [time], [year plus="2"], [month minus="3"], [month_name], [day], [weekday]
-Version: 2.0
+Version: 2.1
 Author: webvitaly
 Text Domain: extra-shortcodes
 Author URI: http://web-profile.com.ua/wordpress/plugins/
