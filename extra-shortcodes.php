@@ -2,8 +2,8 @@
 /*
 Plugin Name: Extra Shortcodes
 Plugin URI: http://wordpress.org/plugins/extra-shortcodes/
-Description: [bloginfo show="name"], [date format="l jS \\of F Y h:i:s A" timestamp="+2 years +3 months -20 days -10 hours +30 minutes"], [date_i18n], [time], [year plus="2"], [month minus="3"], [month_name], [day], [weekday]
-Version: 2.1
+Description: [extra_archives], [extra_taxonomies], [bloginfo show="name"], [date format="l jS \\of F Y h:i:s A" timestamp="+2 years +3 months -20 days -10 hours +30 minutes"], [date_i18n], [time], [year plus="2"], [month minus="3"], [month_name], [day], [weekday]
+Version: 2.2
 Author: webvitaly
 Text Domain: extra-shortcodes
 Author URI: http://web-profile.com.ua/wordpress/plugins/
@@ -18,6 +18,8 @@ class Extra_Shortcodes {
 		// Note: shortcode names should be all lowercase and use all letters, numbers and underscores (not dashes!)
 
 		add_shortcode( 'extra_archives', array( __CLASS__, 'archives_shortcode' ) );
+
+		add_shortcode( 'extra_taxonomies', array( __CLASS__, 'taxonomies_shortcode' ) );
 
 		add_shortcode( 'bloginfo', array( __CLASS__, 'bloginfo_shortcode' ) );
 
@@ -48,23 +50,71 @@ class Extra_Shortcodes {
 		$defaults = array(
 			'type' => 'monthly',
 			'limit' => '',
-			'format' => 'html',
-			'before' => '',
-			'after' => '',
+			//'format' => 'html',
+			//'before' => '',
+			//'after' => '',
 			'show_post_count' => 0,
-			'echo' => 0,
+			//'echo' => 0,
 			'order' => 'DESC'
 		);
 		extract( shortcode_atts( $defaults, $atts ) );
 		$archives_args = array(
 			'type' => $type,
 			'limit' => $limit,
+			'format' => 'html',
+			'before' => '',
+			'after' => '',
 			'show_post_count' => $show_post_count,
 			'echo' => 0,
 			'order' => $order
 		);
 
 		return '<ul>'."\n".wp_get_archives( $archives_args ).'</ul>'."\n".'<!-- Powered by Extra Shortcodes wordpress.org/plugins/extra-shortcodes/ -->';
+	}
+
+
+	public static function taxonomies_shortcode( $atts ) {
+		$defaults = array(
+			//'show_option_all' => '',
+			'orderby' => 'name',
+			'order' => 'ASC',
+			//'style' => 'list',
+			'show_count' => 0,
+			'hide_empty' => 1,
+			'use_desc_for_title' => 1,
+			'child_of' => 0,
+			'exclude' => '',
+			'exclude_tree' => '',
+			'include' => '',
+			'hierarchical' => 1,
+			//'title_li' => '',
+			'number' => null,
+			//'echo' => 0,
+			'depth' => 0,
+			'taxonomy' => 'category',
+		);
+		extract( shortcode_atts( $defaults, $atts ) );
+		$categories_args = array(
+			'show_option_all' => '',
+			'orderby' => $orderby,
+			'order' => $order,
+			'style' => 'list',
+			'show_count' => $show_count,
+			'hide_empty' => $hide_empty,
+			'use_desc_for_title' => $use_desc_for_title,
+			'child_of' => $child_of,
+			'exclude' => $exclude,
+			'exclude_tree' => $exclude_tree,
+			'include' => $include,
+			'hierarchical' => $hierarchical,
+			'title_li' => '',
+			'number' => $number,
+			'echo' => 0,
+			'depth' => $depth,
+			'taxonomy' => $taxonomy,
+		);
+
+		return '<ul>'."\n".wp_list_categories( $categories_args ).'</ul>'."\n".'<!-- Powered by Extra Shortcodes wordpress.org/plugins/extra-shortcodes/ -->';
 	}
 
 
