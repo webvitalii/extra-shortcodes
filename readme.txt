@@ -3,7 +3,7 @@ Contributors: webvitaly
 Donate link: http://web-profile.com.ua/donate/
 Tags: shortcode, shortcodes, archives, archive, category, categories, tag, tags, taxonomy, taxonomies, bloginfo, date, date_i18n, time, year, month, week, day
 Requires at least: 3.0
-Tested up to: 4.7
+Tested up to: 5.0
 Stable tag: 2.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -11,10 +11,10 @@ License URI: http://www.gnu.org/licenses/gpl.html
 [extra_archives], [extra_taxonomies], [bloginfo show="name"], [date format="l jS \\of F Y"], [date_i18n], [time]
 
 == Description ==
-> **[WordPress Pro plugins](http://codecanyon.net/popular_item/by_category?category=wordpress&ref=webvitaly "WordPress Pro plugins")** |
+> **[Speedup WordPress](http://codecanyon.net/item/silver-bullet-pro/15171769?ref=webvitalii "Speedup and protect WordPress in a smart way")** |
 > **[Extra Shortcodes](http://web-profile.com.ua/wordpress/plugins/extra-shortcodes/ "Extra Shortcodes")** |
 > **[Donate](http://web-profile.com.ua/donate/ "Donate")** |
-> **[GitHub](https://github.com/webvitaly/extra-shortcodes "Fork")**
+> **[GitHub](https://github.com/webvitalii/extra-shortcodes "Fork")**
 
 
 = Shortcodes: =
@@ -42,9 +42,8 @@ License URI: http://www.gnu.org/licenses/gpl.html
 **[more info about shortcodes](http://wordpress.org/plugins/extra-shortcodes/other_notes/ "Extra Shortcodes")**
 
 = Useful: =
-* ["Anti-spam" - block spam in comments](http://wordpress.org/plugins/anti-spam/ "no spam, no captcha")
-* ["Page-list" - show list of pages with shortcodes](http://wordpress.org/plugins/page-list/ "list of pages with shortcodes")
-* [WordPress Pro plugins](http://codecanyon.net/popular_item/by_category?category=wordpress&ref=webvitaly "WordPress Pro plugins")
+* **[Silver Bullet Pro - Speedup and protect WordPress in a smart way](http://codecanyon.net/item/silver-bullet-pro/15171769?ref=webvitalii "Speedup and protect WordPress in a smart way")**
+* **[Anti-spam Pro - Block spam in comments](http://codecanyon.net/item/antispam-pro/6491169?ref=webvitalii "Block spam in comments")**
 
 
 == Other Notes ==
