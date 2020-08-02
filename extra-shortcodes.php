@@ -6,7 +6,7 @@ Description: [extra_archives], [extra_taxonomies], [bloginfo show="name"], [date
 Version: 2.2
 Author: webvitaly
 Text Domain: extra-shortcodes
-Author URI: http://web-profile.com.ua/wordpress/plugins/
+Author URI: http://web-profile.net/wordpress/plugins/
 License: GPLv3
 */
 
@@ -328,9 +328,8 @@ class Extra_Shortcodes {
 	public static function plugin_row_meta( $links, $file ) {
 		if ( $file == plugin_basename( __FILE__ ) ) {
 			$row_meta = array(
-				'support' => '<a href="http://web-profile.com.ua/wordpress/plugins/extra-shortcodes/" target="_blank"><span class="dashicons dashicons-editor-help"></span> ' . __( 'Extra Shortcodes', 'extra-shortcodes' ) . '</a>',
-				'donate' => '<a href="http://web-profile.com.ua/donate/" target="_blank"><span class="dashicons dashicons-heart"></span> ' . __( 'Donate', 'extra-shortcodes' ) . '</a>',
-				'pro' => '<a href="http://codecanyon.net/item/silver-bullet-pro/15171769?ref=webvitalii" target="_blank" title="Speedup and protect WordPress in a smart way"><span class="dashicons dashicons-star-filled"></span> ' . __( 'Silver Bullet Pro', 'extra-shortcodes' ) . '</a>'
+				'support' => '<a href="http://web-profile.net/wordpress/plugins/extra-shortcodes/" target="_blank"><span class="dashicons dashicons-editor-help"></span> ' . __( 'Extra Shortcodes', 'extra-shortcodes' ) . '</a>',
+				'donate' => '<a href="http://web-profile.net/donate/" target="_blank"><span class="dashicons dashicons-heart"></span> ' . __( 'Donate', 'extra-shortcodes' ) . '</a>'
 			);
 			$links = array_merge( $links, $row_meta );
 		}

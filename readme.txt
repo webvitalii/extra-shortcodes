@@ -1,9 +1,9 @@
 === Extra Shortcodes ===
 Contributors: webvitaly
-Donate link: http://web-profile.com.ua/donate/
+Donate link: http://web-profile.net/donate/
 Tags: shortcode, shortcodes, archives, archive, category, categories, tag, tags, taxonomy, taxonomies, bloginfo, date, date_i18n, time, year, month, week, day
 Requires at least: 3.0
-Tested up to: 5.0
+Tested up to: 5.5
 Stable tag: 2.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -11,10 +11,10 @@ License URI: http://www.gnu.org/licenses/gpl.html
 [extra_archives], [extra_taxonomies], [bloginfo show="name"], [date format="l jS \\of F Y"], [date_i18n], [time]
 
 == Description ==
-> **[Speedup WordPress](http://codecanyon.net/item/silver-bullet-pro/15171769?ref=webvitalii "Speedup and protect WordPress in a smart way")** |
-> **[Extra Shortcodes](http://web-profile.com.ua/wordpress/plugins/extra-shortcodes/ "Extra Shortcodes")** |
-> **[Donate](http://web-profile.com.ua/donate/ "Donate")** |
-> **[GitHub](https://github.com/webvitalii/extra-shortcodes "Fork")**
+* **[WordPress Pro plugins](http://web-profile.net/wordpress/plugins/ "WordPress Pro plugins")**
+* **[Extra Shortcodes](http://web-profile.net/wordpress/plugins/extra-shortcodes/ "Extra Shortcodes")**
+* **[Donate](http://web-profile.net/donate/ "Donate")**
+* **[GitHub](https://github.com/webvitalii/extra-shortcodes "Fork")**
 
 
 = Shortcodes: =
@@ -42,8 +42,9 @@ License URI: http://www.gnu.org/licenses/gpl.html
 **[more info about shortcodes](http://wordpress.org/plugins/extra-shortcodes/other_notes/ "Extra Shortcodes")**
 
 = Useful: =
-* **[Silver Bullet Pro - Speedup and protect WordPress in a smart way](http://codecanyon.net/item/silver-bullet-pro/15171769?ref=webvitalii "Speedup and protect WordPress in a smart way")**
-* **[Anti-spam Pro - Block spam in comments](http://codecanyon.net/item/antispam-pro/6491169?ref=webvitalii "Block spam in comments")**
+* ["Page-list" - show list of pages with shortcodes](http://wordpress.org/plugins/page-list/ "list of pages with shortcodes")
+* ["Iframe" - embed content](http://wordpress.org/plugins/iframe/ "embed content")
+* [WordPress Pro plugins](http://web-profile.net/wordpress/plugins/ "WordPress Pro plugins")
 
 
 == Other Notes ==
@@ -108,25 +109,25 @@ License URI: http://www.gnu.org/licenses/gpl.html
 
 == Changelog ==
 
-= 2.2 - 2016-01-11 =
+= 2.2 =
 * added [extra_taxonomies] shortcode
 * updated readme.txt
 
-= 2.1 - 2015-12-25 =
+= 2.1 =
 * added [extra_archives] shortcode
 * updated readme.txt
 
-= 2.0 - 2015-12-21 =
+= 2.0 =
 * code refactoring
 * shortcodes cleanup
 
-= 1.6 - 2014-02-14 =
+= 1.6 =
 * added 'use_wordpress_timezone' param to [date] shortcode;
 
-= 1.5 - 2012-12-13 =
+= 1.5 =
 * added [date_i18n] (thanks to HeldZ)
 
-= 1.4 - 2012-11-06 =
+= 1.4 =
 * minor changes
 
 = 1.3 =
